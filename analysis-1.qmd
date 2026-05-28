@@ -1,7 +1,26 @@
 ---
-title: "First Analysis"
+title: "A Beautiful Graphic"
 author: "Harshil Kurapati"
 format: html
+execute:
+  echo: false
 ---
 
-Harshil is a data maestro!
+Harshil Kurapati is a data maestro!
+
+```{r}
+suppressPackageStartupMessages(library(tidyverse))
+```
+
+```{r}
+ggplot(mpg, aes(x = displ, y = hwy, color = class)) +
+  geom_point(alpha = 0.7) +
+  scale_color_brewer(palette = "Set2") +
+  labs(
+    title = "Highway MPG vs Engine Displacement by Vehicle Class",
+    x = "Engine Displacement (L)",
+    y = "Highway MPG",
+    color = "Vehicle Class"
+  ) +
+  theme_minimal()
+```
